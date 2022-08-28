@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style>
+	body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	 background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+	font-family: 'Jost', sans-serif;
+}
+.main{
+	width: 350px;
+	height: 500px;
+	background: red;
+	overflow: hidden;
+  background-color: #3A3B3B;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 50px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+input{
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+.img2{
+	position:fixed;
+	top:13px;
+	left: 31px;
+
+}
+
+nav{
+	position: fixed;
+	top: 0%;
+	width: 100%;
+	height: 10%;
+	background-color: #000;
+}
+
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+#fp{
+  position: relative;
+  bottom: 10px;
+  font-size: 14px;
+  font-weight:bold;
+  background: rgba(76, 175, 80, 0.0);
+  color: grey;
+  text-align: center;
+}
+ul {
+	position: fixed;
+	right: 25px;
+	top: 5px;
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff;
+  font-style: normal;
+  font-weight: 400px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+li {
+  float: left;
+}
+
+.l1 {
+  display: block;
+  color: white;
+  text-align: right;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	color: #573b8a;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup label{
+	transform: scale(.8);
+}
+	</style>
+	<title>Bookish-Register</title>
+	<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body th:style="'background-image:url(' + @{/images/login.jpg} + '); background-repeat: no-repeat;background-size:cover; '">
+	<nav style="background-color: black;" class="navbar navbar-expand-lg navbar-light bg-black">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<img th:src="@{/images/logo.jpg}"  src="../static/images/logo.jpg" width="auto" height="40" class="img2" alt=""/>
+			</a>
+	
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto"></ul>
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="l1" th:href="@{/}" href="#" style="color: #0be2e2;">Home</a>
+					</li>
+					<li class="nav-item active">
+						<a class="l1" th:href="@{/shop}" href="#" style="color: #0be2e2;">Shop</a>
+					</li>
+					<li class="nav-item active">
+						<a class="l1" th:href="@{/login}" style="color: #0be2e2;">Login</a>
+					</li>
+	
+				</ul>
+	
+			</div>
+		</div>
+	</nav>
+  
+	<div class="main">  
+
+    
+			<div class="signup">
+			<form th:action="@{/register}" th:object="${user}" method="post">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<div class="form-group">
+						<input type="text" name="firstname" id="firstname" required placeholder="Name" class="form-control form-control-lg">
+					</div>
+					<div class="form-group">
+					<input type="email" class="form-control form-control-lg" required minlength="6" placeholder="Email" name="email" id="email"
+                    aria-describedby="emailHelp">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control form-control-lg" required placeholder="Password" name="password"
+                    id="password">
+					</div>
+						<button value="Register">Sign up</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html>
